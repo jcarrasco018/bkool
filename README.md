@@ -8,25 +8,22 @@ In this application, we're gonna build a Spring Boot Rest API example with Maven
 - Spring Web + JPA + Redis + Spring Security
 - Open Api to document
 
-
-### Build and run
-
-#### Configurations
+### Configurations
 
 Open the `application.yml` file and set your own configurations.
 
-#### Prerequisites
+### Prerequisites
 
 - Java 17
 - Maven > 3.0
 
-#### From terminal
+### From terminal
 
 Go on the project's root folder, then type:
 
     $ mvn spring-boot:run
 
-#### From docker
+### From docker
 
 Go on the project's root folder, then type:
 
@@ -41,7 +38,15 @@ Urls:
     Adminer http://localhost:8070/?server=host.docker.internal%3A3306&username=root&db=bkool
 
 
+### How to use
 
+#### Login:
+
+    user: user
+
+    pass: 1234
+
+#### In bike Controller add Authorizacion Bearer
 
 ## Support
 Please enter an issue in the repo for any questions or problems.
