@@ -1,0 +1,53 @@
+version: '3.5'
+services:
+  mysql:
+    container_name: mysql-bkool
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+  adminer:
+    container_name: adminer-bkool
+    image: adminer
+    restart: always
+    ports:
+      - 8070:8080
+    extra_hosts:
+    - "host.docker.internal:host-gateway"
+  redis:
+    container_name: redis-bkool
+    image: redis
+    ports:
+     - "6339:6379"
+  msc-bkool:
+    depends_on:
+      - mysql
+      - redis
+      - adminer
+    container_name: msc-bkool
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    ports:
+     - "9654:9654"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: "on-failure"
+
+
+networks:
+    services:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.30.0.0/16

@@ -1,0 +1,11 @@
+  __ )   |  /   _ \    _ \   |
+  __ \   ' /   |   |  |   |  |
+  |   |  . \   |   |  |   |  |
+ ____/  _|\_\ \___/  \___/  _____|
+
+Powered by Spring Boot ${spring-boot.version}
+
+:: Port :: ${server.port}
+:: URL  :: http://localhost:${server.port}${server.contextPath}
+:: Swagger :: http://localhost:${server.port}${server.contextPath}/swagger-ui.html
+:: Adminer :: http://localhost:8070/?server=host.docker.internal%3A3306&username=root&db=bkool

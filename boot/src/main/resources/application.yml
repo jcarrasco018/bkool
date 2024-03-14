@@ -1,0 +1,25 @@
+server:
+  contextPath: /bkool/v1
+  servlet.context-path: /bkool/v1
+  port: 9654
+
+spring:
+  transaction:
+    default-timeout: 500
+  datasource:
+    url: jdbc:mysql://localhost:3306/bkool?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
+  redis:
+    host: localhost
+    port: 6339
+
+
+security:
+  user: user
+  pass: 1234
